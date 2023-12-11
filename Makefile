@@ -27,3 +27,6 @@ fresh:
 	docker compose restart
 rmi:
 	docker image rm -f softcenter-softcenter
+
+backup_db: 
+	docker exec mysql_db bash -c "./home/backups/backup_script.sh"

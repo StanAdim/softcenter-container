@@ -9,14 +9,18 @@ services:
       - 9077:80
   
   mysql_db:
+    container_name: mysql_db
     image: mysql:8.0.33
     environment:
       MYSQL_ROOT_PASSWORD: Softcenter_ICTC
       MYSQL_DATABASE: softcenter_DB
+    volumes:
+      - ./backups:/home/backups
     ports:
     - 3377:3306
   
   phpmyadmin:
+    container_name: phpmyadmin
     image: phpmyadmin:5.2.1
     ports:
       - 9090:80
