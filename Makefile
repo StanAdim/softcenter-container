@@ -10,20 +10,20 @@ up:
 	docker compose up -d
 
 composer-update:
-	docker exec softcenter-app bash -c "composer update"
-	docker exec softcenter-app bash -c "php artisan key:generate"
+	docker exec softcenter bash -c "composer update"
+	docker exec softcenter bash -c "php artisan key:generate"
 node:
-	docker exec softcenter-app bash -c "nvm install v18.17.1"
+	docker exec softcenter bash -c "nvm install v18.17.1"
 	
 optimize:
-	docker exec softcenter-app bash -c "php artisan optimize:fresh"
+	docker exec softcenter bash -c "php artisan optimize:fresh"
 data:
-	docker exec softcenter-app bash -c "php artisan migrate:fresh --seed"
+	docker exec softcenter bash -c "php artisan migrate:fresh --seed"
 
 bash:
-	docker exec -it softcenter-app bash
+	docker exec -it softcenter bash
 
 fresh:
 	docker compose restart
 rmi:
-	docker image rm -f softcenter-softcenter-app
+	docker image rm -f softcenter-softcenter
