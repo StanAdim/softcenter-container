@@ -6,19 +6,19 @@ services:
     volumes:
       - ./softcenter-app:/var/www/html
     ports:
-      - 9099:80
+      - 9077:80
   
   mysql_db:
     image: mysql:8.0.33
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: softcenter_app
+      MYSQL_ROOT_PASSWORD: Softcenter_ICTC
+      MYSQL_DATABASE: softcenter_app_DB
     ports:
-    - 3399:3306
+    - 3377:3306
   
   phpmyadmin:
     image: phpmyadmin:5.2.1
     ports:
-      - 9098:80
+      - 9090:80
     environment:
       - PMA_ARBITRARY=1
