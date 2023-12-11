@@ -1,10 +1,10 @@
 services:
 
-  softcenter-app:
-    container_name: softcenter-app
+  softcenter:
+    container_name: softcenter
     build: .
     volumes:
-      - ./softcenter-app:/var/www/html
+      - ./softcenter:/var/www/html
     ports:
       - 9077:80
   
@@ -12,7 +12,7 @@ services:
     image: mysql:8.0.33
     environment:
       MYSQL_ROOT_PASSWORD: Softcenter_ICTC
-      MYSQL_DATABASE: softcenter_app_DB
+      MYSQL_DATABASE: softcenter_DB
     ports:
     - 3377:3306
   
