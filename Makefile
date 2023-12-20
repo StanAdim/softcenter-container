@@ -13,7 +13,7 @@ composer-update:
 	docker exec softcenter bash -c "composer update"
 	docker exec softcenter bash -c "php artisan key:generate"
 node:
-	docker exec softcenter bash -c "nvm install v18.17.1"
+	docker exec softcenter bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash"
 	
 optimize:
 	docker exec softcenter bash -c "php artisan optimize:fresh"
@@ -27,6 +27,8 @@ fresh:
 	docker compose restart
 rmi:
 	docker image rm -f softcenter-softcenter
+logs: 
+	docker logs -f softcenter
 
 backup_db: 
 	docker exec mysql_db bash -c "./home/backups/backup_script.sh"

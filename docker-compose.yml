@@ -3,10 +3,11 @@ services:
   softcenter:
     container_name: softcenter
     build: .
+    restart: unless-stopped
     volumes:
       - ./softcenter:/var/www/html
     ports:
-      - 9077:80
+      - 9292:80
   
   mysql_db:
     container_name: mysql_db
@@ -16,6 +17,7 @@ services:
       MYSQL_DATABASE: softcenter_DB
     volumes:
       - ./backups:/home/backups
+    restart: unless-stopped
     ports:
     - 3377:3306
   

@@ -6,6 +6,7 @@ RUN a2enmod rewrite
 
 # Linux Library
 RUN apt-get update -y && apt-get install -y \
+    git \
     libicu-dev \
     curl \
     libmariadb-dev \
@@ -19,17 +20,12 @@ RUN apt-get update -y && apt-get install -y \
 
 # Composer
 COPY --from=composer:2.2.6 /usr/bin/composer /usr/bin/composer
-
-
 # PHP Extension
 RUN docker-php-ext-install gettext intl pdo_mysql gd
-
-
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-
-
 RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
+# RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/public
 
 EXPOSE 80
-# node installation 
+CMD ["apache2-foreground"]
