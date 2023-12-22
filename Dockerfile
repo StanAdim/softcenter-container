@@ -34,4 +34,5 @@ RUN sed -i '/SSLCertificateFile.*snakeoil\.pem/c\SSLCertificateFile \/etc\/ssl\/
 RUN sed -i '/SSLCertificateKeyFile.*snakeoil\.key/c\SSLCertificateKeyFile \/etc\/ssl\/private\/softcenter_ictc_go_tz.key' /etc/apache2/sites-available/default-ssl.conf
 
 EXPOSE 80
+EXPOSE 443
 CMD ["apache2-foreground"]

@@ -10,6 +10,7 @@ services:
       -  /etc/ssl/softcenter_ictc/softcenter_ictc_go_tz.crt:/etc/ssl/softcenter_ictc/softcenter_ictc_go_tz.crt
     ports:
       - 9292:80
+      - 9443:443
   
   mysql_db:
     container_name: mysql_db
