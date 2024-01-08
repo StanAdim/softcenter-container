@@ -6,11 +6,12 @@ services:
     restart: unless-stopped
     volumes:
       - ./softcenter:/var/www/html
-      -  /etc/ssl/private/softcenter_ictc_go_tz.key:/etc/ssl/private/softcenter_ictc_go_tz.key
-      -  /etc/ssl/softcenter_ictc/softcenter_ictc_go_tz.crt:/etc/ssl/softcenter_ictc/softcenter_ictc_go_tz.crt
+      # for production
+      # -  /etc/ssl/private/softcenter_ictc_go_tz.key:/etc/ssl/private/softcenter_ictc_go_tz.key
+      # -  /etc/ssl/softcenter_ictc/softcenter_ictc_go_tz.crt:/etc/ssl/softcenter_ictc/softcenter_ictc_go_tz.crt
     ports:
       - 9292:80
-      - 9443:443
+      # - 9443:443 - production
   
   mysql_db:
     container_name: mysql_db
