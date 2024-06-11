@@ -19,8 +19,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: Softcenter_ICTC
       MYSQL_DATABASE: softcenter_DB
+#Store - Data locale
     volumes:
-      - ./backups:/home/backups
+      - mysql_data:/var/lib/mysql
      
     restart: unless-stopped
     ports:
@@ -33,3 +34,7 @@ services:
       - 9090:80
     environment:
       - PMA_ARBITRARY=1
+  
+#Volume of Mysql
+volumes:
+  mysql_data:
